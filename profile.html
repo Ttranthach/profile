@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <img src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/464374109_1952864031885561_1074355463401172507_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=zavMxVpPKIQQ7kNvgHjUP7e&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=AIwuMdZBnaXcfj6imDmmsjE&oh=00_AYDgvY1r0Y7m6NmAYV9V2fwtO8WQfwFdWUWZK08Oq0mpsA&oe=673EBC70" alt="Avatar" class="profile-avatar" id="profile-avatar">
+        <div class="profile-info">
+            <h1 class="profile-name" id="profile-name">Meow</h1>
+
+            <!-- Vòng tròn ngoài cho Số điện thoại -->
+            <div class="outer-circle">
+                <div class="profile-contact phone">
+                    <img src="https://th.bing.com/th/id/OIP.4Sd6-1MJIzIisa_pNpHkpQHaHa?rs=1&pid=ImgDetMain" alt="Phone Icon" class="contact-icon">
+                    <a href="tel">+84 123 456 789</a>
+                </div>
+            </div>
+
+            <!-- Vòng tròn ngoài cho Facebook -->
+            <div class="outer-circle">
+                <div class="profile-contact facebook">
+                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook Icon" class="contact-icon">
+                    <a href="https://www.facebook.com/thach.thien.58323" target="_blank">facebook.com/yourprofile</a>
+                </div>
+            </div>
+
+            <!-- Vòng tròn ngoài cho YouTube -->
+            <div class="outer-circle">
+                <div class="profile-contact youtube">
+                    <img src="https://th.bing.com/th/id/OIP.zjMhUcihfwmLxS5W3NBpMgHaHa?rs=1&pid=ImgDetMain" alt="YouTube Icon" class="contact-icon">
+                    <a href="https://www.youtube.com/@ttxmcpe1336" target="_blank">youtube.com/yourchannel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="background-music" src="https://stream.nct.vn/NhacCuaTui2052/ThienLyOi-JackJ97-13829746.mp3" loop></audio>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = document.getElementById('background-music');
+            const profileAvatar = document.getElementById('profile-avatar');
+            const profileName = document.getElementById('profile-name');
+
+            function playMusic() {
+                audio.volume = 0.5; // Đặt âm lượng 50%
+                audio.play().catch(error => {
+                    console.error('Không thể tự động phát âm thanh:', error);
+                });
+            }
+
+            if (profileAvatar) {
+                profileAvatar.addEventListener('click', playMusic);
+            }
+
+            if (profileName) {
+                profileName.addEventListener('click', playMusic);
+            }
+        });
+    </script>
+</body>
+</html>
