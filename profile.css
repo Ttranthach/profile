@@ -27,9 +27,9 @@ body {
     text-align: center;
     background: white;
     padding: 50px;
-    border-radius: 15px;
+    border-radius: 19px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -80,7 +80,7 @@ body {
     display: flex;
     align-items: center;
     padding: 10px;
-    width: 50%;
+    width: 130%;
     background-color: rgb(235, 239, 239);
     border-radius: 26px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
@@ -121,19 +121,4 @@ body {
     transform: rotate(360deg) scale(1.2);
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .profile-container {
-        width: 70%;
-    }
 
-    .profile-contact {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    .contact-icon {
-        width: 20px;
-        height: 20px;
-    }
-}
