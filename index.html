@@ -3,111 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
+    <title>Meow</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to top, #00c4ff, #ffd700); /* Gradient mùa hè: xanh dương -> vàng */
+            position: relative;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng ánh nắng nhẹ */
+        .sun-ray {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+            animation: shimmer 5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.5; }
+        }
+
+        .profile-card {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hiệu ứng viền khi hover */
+        .profile-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(0, 196, 255, 0.3);
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* Làm ảnh tròn */
+            object-fit: cover;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer; /* Thêm con trỏ để báo hiệu có thể nhấn */
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .profile-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 220px; /* Hơi dài bề ngang */
+            height: 40px; /* Gần vuông */
+            margin: 20px auto; /* Tăng khoảng cách giữa các nút */
+            background: #f0f0f0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Hiệu ứng khi hover vào nút */
+        .profile-button:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-container">
-        <img src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/464374109_1952864031885561_1074355463401172507_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=zavMxVpPKIQQ7kNvgHjUP7e&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=AIwuMdZBnaXcfj6imDmmsjE&oh=00_AYDgvY1r0Y7m6NmAYV9V2fwtO8WQfwFdWUWZK08Oq0mpsA&oe=673EBC70" alt="Avatar" class="profile-avatar" id="profile-avatar">
-        <div class="profile-info">
-            <h1 class="profile-name" id="profile-name">Meow</h1>
-
-            <!-- Vòng tròn ngoài cho Số điện thoại -->
-            <div class="outer-circle">
-                <div class="profile-contact phone">
-                    <img src="https://th.bing.com/th/id/OIP.4Sd6-1MJIzIisa_pNpHkpQHaHa?rs=1&pid=ImgDetMain" alt="Phone Icon" class="contact-icon">
-                    <a href="tel">+84 </a>
-                </div>
-            </div>
-
-            <!-- Vòng tròn ngoài cho Facebook -->
-            <div class="outer-circle">
-                <div class="profile-contact facebook">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook Icon" class="contact-icon">
-                    <a href="https://www.facebook.com/thach.thien.58323" target="_blank">Facebook</a>
-                </div>
-            </div>
-
-            <!-- Vòng tròn ngoài cho YouTube -->
-            <div class="outer-circle">
-                <div class="profile-contact youtube">
-                    <img src="https://th.bing.com/th/id/OIP.zjMhUcihfwmLxS5W3NBpMgHaHa?rs=1&pid=ImgDetMain" alt="YouTube Icon" class="contact-icon">
-                    <a href="https://www.youtube.com/@ttxmcpe1336" target="_blank">Youtube</a>
-                </div>
-            </div>
-        </div>
+    <div class="sun-ray"></div> <!-- Hiệu ứng ánh nắng -->
+    <div class="profile-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiLiHTOnnI3MKa-Ww9eMmHPAz73C7VtsuaTFQ7sAc84A&s" alt="Profile Avatar" class="profile-avatar" onclick="toggleMusic()">
+        <div class="profile-name">Meow</div>
+        <a href="https://zalo.me/0917462397" target="_blank" class="profile-button">
+            <img src="https://img.icons8.com/color/48/000000/zalo.png" alt="Zalo Icon">
+            Zalo
+        </a>
+        <a href="https://discord.gg/bRVStqFE" target="_blank" class="profile-button">
+            <img src="https://img.icons8.com/color/48/000000/discord-logo.png" alt="Discord Icon">
+            Discord
+        </a>
+        <a href="https://www.facebook.com/share/1FYXH5cMie/" target="_blank" class="profile-button">
+            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook Icon">
+            Facebook
+        </a>
+        <a href="https://youtube.com/@ttxmcpe1336" target="_blank" class="profile-button">
+            <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube Icon">
+            Youtube
+        </a>
     </div>
-    <style>
-        /* customizable snowflake styling */
-        .snowflake {
-          color: #fff;
-          font-size: 1em;
-          font-family: Arial, sans-serif;
-          text-shadow: 0 0 5px #000;
-        }
-        
-        .snowflake,.snowflake .inner{animation-iteration-count:infinite;animation-play-state:running}@keyframes snowflakes-fall{0%{transform:translateY(0)}100%{transform:translateY(110vh)}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;user-select:none;cursor:default;animation-name:snowflakes-shake;animation-duration:3s;animation-timing-function:ease-in-out}.snowflake .inner{animation-duration:10s;animation-name:snowflakes-fall;animation-timing-function:linear}.snowflake:nth-of-type(0){left:1%;animation-delay:0s}.snowflake:nth-of-type(0) .inner{animation-delay:0s}.snowflake:first-of-type{left:10%;animation-delay:1s}.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{animation-delay:1s}.snowflake:nth-of-type(2){left:20%;animation-delay:.5s}.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{animation-delay:6s}.snowflake:nth-of-type(3){left:30%;animation-delay:2s}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{animation-delay:4s}.snowflake:nth-of-type(4){left:40%;animation-delay:2s}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{animation-delay:2s}.snowflake:nth-of-type(5){left:50%;animation-delay:3s}.snowflake:nth-of-type(5) .inner{animation-delay:8s}.snowflake:nth-of-type(6){left:60%;animation-delay:2s}.snowflake:nth-of-type(7){left:70%;animation-delay:1s}.snowflake:nth-of-type(7) .inner{animation-delay:2.5s}.snowflake:nth-of-type(8){left:80%;animation-delay:0s}.snowflake:nth-of-type(9){left:90%;animation-delay:1.5s}.snowflake:nth-of-type(9) .inner{animation-delay:3s}.snowflake:nth-of-type(10){left:25%;animation-delay:0s}.snowflake:nth-of-type(11){left:65%;animation-delay:2.5s}
-        </style>
-        <div class="snowflakes" aria-hidden="true">
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-          <div class="snowflake">
-            <div class="inner">❅</div>
-          </div>
-        </div>        
-    <audio id="background-music" src="https://stream.nct.vn/NhacCuaTui2052/ThienLyOi-JackJ97-13829746.mp3" loop></audio>
+
+    <!-- Thẻ audio để phát nhạc -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://sf16-ies-music-sg.tiktokcdn.com/obj/tiktok-obj/7483513656815880976.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const audio = document.getElementById('background-music');
-            const profileAvatar = document.getElementById('profile-avatar');
-            const profileName = document.getElementById('profile-name');
+        // Chức năng phát/dừng nhạc
+        const audio = document.getElementById('backgroundMusic');
+        let isPlaying = false;
 
-            function playMusic() {
-                audio.volume = 0.5; // Đặt âm lượng 50%
-                audio.play().catch(error => {
-                    console.error('Không thể tự động phát âm thanh:', error);
-                });
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
             }
-
-            if (profileAvatar) {
-                profileAvatar.addEventListener('click', playMusic);
-            }
-
-            if (profileName) {
-                profileName.addEventListener('click', playMusic);
-            }
-        });
+            isPlaying = !isPlaying;
+        }
     </script>
 </body>
 </html>
